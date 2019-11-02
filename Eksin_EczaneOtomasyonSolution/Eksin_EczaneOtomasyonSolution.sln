@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eksin_EczaneOtomasyonProject", "Eksin_EczaneOtomasyonProject\Eksin_EczaneOtomasyonProject.csproj", "{A115C37E-C3D1-4E08-95FA-6A4A0AE9D447}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A115C37E-C3D1-4E08-95FA-6A4A0AE9D447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A115C37E-C3D1-4E08-95FA-6A4A0AE9D447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A115C37E-C3D1-4E08-95FA-6A4A0AE9D447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A115C37E-C3D1-4E08-95FA-6A4A0AE9D447}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D35F013C-B23B-42E0-9940-13BD9C080FF3}
+	EndGlobalSection
+EndGlobal

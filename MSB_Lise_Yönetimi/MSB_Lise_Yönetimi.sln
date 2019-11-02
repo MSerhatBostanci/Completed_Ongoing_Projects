@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiseYonetim.UI", "LiseYonetim.UI\LiseYonetim.UI.csproj", "{6A854BC0-7053-4539-95A5-8A7C2B6E9A0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiseYonetim.DLL", "LiseYonetim.DLL\LiseYonetim.DLL.csproj", "{DD2D30F6-255F-43FC-953A-4736FB837261}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiseYonetim.BLL", "LiseYonetim.BLL\LiseYonetim.BLL.csproj", "{AC12A59A-D93C-46FF-A785-4D09C02468EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A854BC0-7053-4539-95A5-8A7C2B6E9A0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A854BC0-7053-4539-95A5-8A7C2B6E9A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A854BC0-7053-4539-95A5-8A7C2B6E9A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A854BC0-7053-4539-95A5-8A7C2B6E9A0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD2D30F6-255F-43FC-953A-4736FB837261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD2D30F6-255F-43FC-953A-4736FB837261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD2D30F6-255F-43FC-953A-4736FB837261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD2D30F6-255F-43FC-953A-4736FB837261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC12A59A-D93C-46FF-A785-4D09C02468EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC12A59A-D93C-46FF-A785-4D09C02468EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC12A59A-D93C-46FF-A785-4D09C02468EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC12A59A-D93C-46FF-A785-4D09C02468EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65753249-9FA4-4E9D-A6C2-F6CE63044552}
+	EndGlobalSection
+EndGlobal

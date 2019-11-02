@@ -1,0 +1,12 @@
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\bin\Debug\LiseYonetim.DLL.dll.config
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\bin\Debug\LiseYonetim.DLL.dll
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\bin\Debug\LiseYonetim.DLL.pdb
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\bin\Debug\EntityFramework.dll
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\bin\Debug\EntityFramework.xml
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\obj\Debug\LiseYonetim.DLL.csprojAssemblyReference.cache
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\obj\Debug\LiseYonetim.DLL.csproj.CoreCompileInputs.cache
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\obj\Debug\LiseYonetim.DLL.csproj.CopyComplete
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\obj\Debug\LiseYonetim.DLL.dll
+C:\Users\Section1\source\repos\MSB_Lise_Yönetimi\LiseYonetim.DLL\obj\Debug\LiseYonetim.DLL.pdb

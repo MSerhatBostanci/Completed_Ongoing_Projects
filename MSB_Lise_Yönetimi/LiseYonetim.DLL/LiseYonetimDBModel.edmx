@@ -1,0 +1,1822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Lise_Yönetim_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bolumler">
+          <Key>
+            <PropertyRef Name="BolumID" />
+          </Key>
+          <Property Name="BolumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BolumAdi" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="BolumAciklama" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Dersler">
+          <Key>
+            <PropertyRef Name="DersID" />
+          </Key>
+          <Property Name="DersID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DersAdi" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="DersProgramları">
+          <Key>
+            <PropertyRef Name="DersProgramiID" />
+          </Key>
+          <Property Name="SinifID" Type="int" Nullable="false" />
+          <Property Name="DosyaEki" Type="nvarchar(max)" />
+          <Property Name="DersProgramiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DersSinavlari">
+          <Key>
+            <PropertyRef Name="DersSinavlariID" />
+          </Key>
+          <Property Name="DersSinavlariID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DersID" Type="int" Nullable="false" />
+          <Property Name="SinavDonemID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Duyurular">
+          <Key>
+            <PropertyRef Name="DuyuruID" />
+          </Key>
+          <Property Name="DuyuruID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DuyuruMetin" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DuyuruTarihi" Type="date" Nullable="false" />
+          <Property Name="DosyaEki" Type="nvarchar(max)" />
+          <Property Name="SorumluPersonel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="30" />
+          <Property Name="KullaniciSoyadi" Type="nvarchar" MaxLength="20" />
+          <Property Name="KullaniciTC" Type="nvarchar" MaxLength="11" />
+          <Property Name="KullaniciDogumGunu" Type="date" />
+        </EntityType>
+        <EntityType Name="OgrenciBilgileri">
+          <Key>
+            <PropertyRef Name="OgrenciID" />
+          </Key>
+          <Property Name="OgrenciID" Type="int" Nullable="false" />
+          <Property Name="OgrenciTelefonu" Type="nvarchar" MaxLength="12" />
+          <Property Name="OgrenciMailAdresi" Type="nvarchar" MaxLength="50" />
+          <Property Name="OgrenciEvAdresi" Type="nvarchar(max)" />
+          <Property Name="VeliAdiSoyadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VeliTelefonu" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Veli2AdiSoyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="VeliTelefonu2" Type="nvarchar" MaxLength="12" />
+          <Property Name="OgrenciDogumTarihi" Type="date" />
+        </EntityType>
+        <EntityType Name="OgrenciDersleri">
+          <Key>
+            <PropertyRef Name="OgrenciDersleriID" />
+          </Key>
+          <Property Name="OgrenciDersleriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrenciID" Type="int" />
+          <Property Name="DersID" Type="int" />
+        </EntityType>
+        <EntityType Name="OgrenciDevamsizlik">
+          <Key>
+            <PropertyRef Name="OgrenciDevamsizlikID" />
+          </Key>
+          <Property Name="OgrenciDevamsizlikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrenciID" Type="int" Nullable="false" />
+          <Property Name="DevamsizlikTarihi" Type="date" Nullable="false" />
+          <Property Name="Mazereti" Type="nvarchar(max)" />
+          <Property Name="RaporBilgisi" Type="bit" Nullable="false" />
+          <Property Name="VeliBilgilendirilmesi" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OgrenciDisiplinKayitlari">
+          <Key>
+            <PropertyRef Name="DisiplinID" />
+          </Key>
+          <Property Name="DisiplinID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrenciID" Type="int" />
+          <Property Name="DisiplinSebebi" Type="nvarchar(max)" />
+          <Property Name="SorumluOgretmen" Type="int" />
+        </EntityType>
+        <EntityType Name="Ogrenciler">
+          <Key>
+            <PropertyRef Name="OgrenciID" />
+          </Key>
+          <Property Name="OgrenciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrenciAdi" Type="nvarchar" MaxLength="30" />
+          <Property Name="OgrenciSoyadi" Type="nvarchar" MaxLength="20" />
+          <Property Name="OgrenciKimlikNo" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OgrenciSinavlari">
+          <Key>
+            <PropertyRef Name="OgrenciSinavlariID" />
+          </Key>
+          <Property Name="OgrenciSinavlariID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrenciID" Type="int" />
+          <Property Name="SinavNotu" Type="int" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OgretmenBilgileri">
+          <Key>
+            <PropertyRef Name="OgretmenID" />
+          </Key>
+          <Property Name="OgretmenID" Type="int" Nullable="false" />
+          <Property Name="OgretmenTelefonu" Type="nvarchar" MaxLength="12" />
+          <Property Name="OgretmenMailAdresi" Type="nvarchar" MaxLength="50" />
+          <Property Name="OgretmenEvAdresi" Type="nvarchar(max)" />
+          <Property Name="OgretmenDogumTarihi" Type="date" />
+          <Property Name="OgretmenMedeniDurum" Type="bit" />
+        </EntityType>
+        <EntityType Name="OgretmenBranslari">
+          <Key>
+            <PropertyRef Name="BransID" />
+          </Key>
+          <Property Name="BransID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BransAdi" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OgretmenDersleri">
+          <Key>
+            <PropertyRef Name="OgretmenDersleriID" />
+          </Key>
+          <Property Name="OgretmenDersleriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgretmenID" Type="int" Nullable="false" />
+          <Property Name="DersID" Type="int" />
+        </EntityType>
+        <EntityType Name="OgretmenDevamsizlik">
+          <Key>
+            <PropertyRef Name="OgretmenDevamsizlikID" />
+          </Key>
+          <Property Name="OgretmenDevamsizlikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgretmenID" Type="int" />
+          <Property Name="DevamsizlikTarihi" Type="date" />
+          <Property Name="Mazereti" Type="nvarchar(max)" />
+          <Property Name="RaporBilgisi" Type="bit" />
+        </EntityType>
+        <EntityType Name="OgretmenDisiplinKayitlari">
+          <Key>
+            <PropertyRef Name="DisiplinID" />
+          </Key>
+          <Property Name="DisiplinID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgretmenID" Type="int" />
+          <Property Name="DisiplinSebebi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Ogretmenler">
+          <Key>
+            <PropertyRef Name="OgretmenID" />
+          </Key>
+          <Property Name="OgretmenID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgretmenAdi" Type="nvarchar" MaxLength="30" />
+          <Property Name="OgretmenSoyadi" Type="nvarchar" MaxLength="20" />
+          <Property Name="OgretmenKimlikNo" Type="nvarchar" MaxLength="11" />
+          <Property Name="OgretmenBrans" Type="int" />
+          <Property Name="KullaniciID" Type="int" />
+        </EntityType>
+        <EntityType Name="PersonelBilgileri">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="int" Nullable="false" />
+          <Property Name="PersonelTelefonu" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="PersonelMailAdresi" Type="nvarchar" MaxLength="50" />
+          <Property Name="PersonelEvAdresi" Type="nvarchar(max)" />
+          <Property Name="PersonelDogumTarihi" Type="date" />
+          <Property Name="PersonelMedeniDurumu" Type="bit" />
+        </EntityType>
+        <EntityType Name="PersonelDevamsizlik">
+          <Key>
+            <PropertyRef Name="PersonelDevamsızlıkID" />
+          </Key>
+          <Property Name="PersonelDevamsızlıkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelID" Type="int" Nullable="false" />
+          <Property Name="DevamsizlikTarihi" Type="date" Nullable="false" />
+          <Property Name="Mazereti" Type="nvarchar(max)" />
+          <Property Name="RaporBilgisi" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personeller">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelAdi" Type="nvarchar" MaxLength="30" />
+          <Property Name="PersonelSoyadi" Type="nvarchar" MaxLength="20" />
+          <Property Name="PersonelKimlikNo" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="PersonelMeslekID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonelMeslekleri">
+          <Key>
+            <PropertyRef Name="MeslekID" />
+          </Key>
+          <Property Name="MeslekID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MeslekAdi" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="MeslekAçiklamasi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SinavDonemleri">
+          <Key>
+            <PropertyRef Name="SinavDönemID" />
+          </Key>
+          <Property Name="SinavDönemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SinavDönemAdi" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Siniflar">
+          <Key>
+            <PropertyRef Name="SinifID" />
+          </Key>
+          <Property Name="SinifID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SinifNo" Type="int" Nullable="false" />
+          <Property Name="BolumID" Type="int" Nullable="false" />
+          <Property Name="SubeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SinifOgrencileri">
+          <Key>
+            <PropertyRef Name="SinifOgrencileriID" />
+          </Key>
+          <Property Name="SinifOgrencileriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SinifID" Type="int" />
+          <Property Name="OgrenciID" Type="int" />
+          <Property Name="Tarih" Type="date" />
+        </EntityType>
+        <EntityType Name="Subeler">
+          <Key>
+            <PropertyRef Name="SubeID" />
+          </Key>
+          <Property Name="SubeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubeAdi" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_DersProgramları_Siniflar">
+          <End Role="Siniflar" Type="Self.Siniflar" Multiplicity="1" />
+          <End Role="DersProgramları" Type="Self.DersProgramları" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siniflar">
+              <PropertyRef Name="SinifID" />
+            </Principal>
+            <Dependent Role="DersProgramları">
+              <PropertyRef Name="SinifID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DersSinavlari_Dersler">
+          <End Role="Dersler" Type="Self.Dersler" Multiplicity="1" />
+          <End Role="DersSinavlari" Type="Self.DersSinavlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="DersID" />
+            </Principal>
+            <Dependent Role="DersSinavlari">
+              <PropertyRef Name="DersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DersSinavlari_OgrenciSinavlari">
+          <End Role="OgrenciSinavlari" Type="Self.OgrenciSinavlari" Multiplicity="1" />
+          <End Role="DersSinavlari" Type="Self.DersSinavlari" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OgrenciSinavlari">
+              <PropertyRef Name="OgrenciSinavlariID" />
+            </Principal>
+            <Dependent Role="DersSinavlari">
+              <PropertyRef Name="DersSinavlariID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DersSinavlari_SinavDonemleri">
+          <End Role="SinavDonemleri" Type="Self.SinavDonemleri" Multiplicity="1" />
+          <End Role="DersSinavlari" Type="Self.DersSinavlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SinavDonemleri">
+              <PropertyRef Name="SinavDönemID" />
+            </Principal>
+            <Dependent Role="DersSinavlari">
+              <PropertyRef Name="SinavDonemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Duyurular_Personeller">
+          <End Role="Personeller" Type="Self.Personeller" Multiplicity="1" />
+          <End Role="Duyurular" Type="Self.Duyurular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personeller">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="Duyurular">
+              <PropertyRef Name="SorumluPersonel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciBilgileri_Ogrenciler">
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="1" />
+          <End Role="OgrenciBilgileri" Type="Self.OgrenciBilgileri" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="OgrenciBilgileri">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciDersleri_Dersler">
+          <End Role="Dersler" Type="Self.Dersler" Multiplicity="0..1" />
+          <End Role="OgrenciDersleri" Type="Self.OgrenciDersleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="DersID" />
+            </Principal>
+            <Dependent Role="OgrenciDersleri">
+              <PropertyRef Name="DersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciDersleri_Ogrenciler">
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="0..1" />
+          <End Role="OgrenciDersleri" Type="Self.OgrenciDersleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="OgrenciDersleri">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciDevamsizlik_Ogrenciler">
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="1" />
+          <End Role="OgrenciDevamsizlik" Type="Self.OgrenciDevamsizlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="OgrenciDevamsizlik">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciDisiplinKayitlari_Ogrenciler">
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="0..1" />
+          <End Role="OgrenciDisiplinKayitlari" Type="Self.OgrenciDisiplinKayitlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="OgrenciDisiplinKayitlari">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciDisiplinKayitlari_Ogretmenler">
+          <End Role="Ogretmenler" Type="Self.Ogretmenler" Multiplicity="0..1" />
+          <End Role="OgrenciDisiplinKayitlari" Type="Self.OgrenciDisiplinKayitlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogretmenler">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="OgrenciDisiplinKayitlari">
+              <PropertyRef Name="SorumluOgretmen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogrenciler_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Ogrenciler">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciSinavlari_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+          <End Role="OgrenciSinavlari" Type="Self.OgrenciSinavlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="OgrenciSinavlari">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciSinavlari_Ogrenciler">
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="0..1" />
+          <End Role="OgrenciSinavlari" Type="Self.OgrenciSinavlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="OgrenciSinavlari">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgretmenBilgileri_Ogretmenler">
+          <End Role="Ogretmenler" Type="Self.Ogretmenler" Multiplicity="1" />
+          <End Role="OgretmenBilgileri" Type="Self.OgretmenBilgileri" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ogretmenler">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="OgretmenBilgileri">
+              <PropertyRef Name="OgretmenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgretmenDersleri_Dersler">
+          <End Role="Dersler" Type="Self.Dersler" Multiplicity="0..1" />
+          <End Role="OgretmenDersleri" Type="Self.OgretmenDersleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="DersID" />
+            </Principal>
+            <Dependent Role="OgretmenDersleri">
+              <PropertyRef Name="DersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgretmenDersleri_Ogretmenler">
+          <End Role="Ogretmenler" Type="Self.Ogretmenler" Multiplicity="1" />
+          <End Role="OgretmenDersleri" Type="Self.OgretmenDersleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogretmenler">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="OgretmenDersleri">
+              <PropertyRef Name="OgretmenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgretmenDevamsizlik_Ogretmenler">
+          <End Role="Ogretmenler" Type="Self.Ogretmenler" Multiplicity="0..1" />
+          <End Role="OgretmenDevamsizlik" Type="Self.OgretmenDevamsizlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogretmenler">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="OgretmenDevamsizlik">
+              <PropertyRef Name="OgretmenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgretmenDisiplinKayitlari_Ogretmenler">
+          <End Role="Ogretmenler" Type="Self.Ogretmenler" Multiplicity="0..1" />
+          <End Role="OgretmenDisiplinKayitlari" Type="Self.OgretmenDisiplinKayitlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogretmenler">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="OgretmenDisiplinKayitlari">
+              <PropertyRef Name="OgretmenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogretmenler_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="Ogretmenler" Type="Self.Ogretmenler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Ogretmenler">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogretmenler_OgretmenBranslari">
+          <End Role="OgretmenBranslari" Type="Self.OgretmenBranslari" Multiplicity="0..1" />
+          <End Role="Ogretmenler" Type="Self.Ogretmenler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OgretmenBranslari">
+              <PropertyRef Name="BransID" />
+            </Principal>
+            <Dependent Role="Ogretmenler">
+              <PropertyRef Name="OgretmenBrans" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelBilgileri_Personeller">
+          <End Role="Personeller" Type="Self.Personeller" Multiplicity="1" />
+          <End Role="PersonelBilgileri" Type="Self.PersonelBilgileri" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Personeller">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="PersonelBilgileri">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelDevamsizlik_Personeller">
+          <End Role="Personeller" Type="Self.Personeller" Multiplicity="1" />
+          <End Role="PersonelDevamsizlik" Type="Self.PersonelDevamsizlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personeller">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="PersonelDevamsizlik">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personeller_PersonelMeslekleri">
+          <End Role="PersonelMeslekleri" Type="Self.PersonelMeslekleri" Multiplicity="1" />
+          <End Role="Personeller" Type="Self.Personeller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonelMeslekleri">
+              <PropertyRef Name="MeslekID" />
+            </Principal>
+            <Dependent Role="Personeller">
+              <PropertyRef Name="PersonelMeslekID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Siniflar_Bolumler">
+          <End Role="Bolumler" Type="Self.Bolumler" Multiplicity="1" />
+          <End Role="Siniflar" Type="Self.Siniflar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolumler">
+              <PropertyRef Name="BolumID" />
+            </Principal>
+            <Dependent Role="Siniflar">
+              <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Siniflar_Subeler">
+          <End Role="Subeler" Type="Self.Subeler" Multiplicity="1" />
+          <End Role="Siniflar" Type="Self.Siniflar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subeler">
+              <PropertyRef Name="SubeID" />
+            </Principal>
+            <Dependent Role="Siniflar">
+              <PropertyRef Name="SubeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SinifOgrencileri_Ogrenciler">
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="0..1" />
+          <End Role="SinifOgrencileri" Type="Self.SinifOgrencileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="SinifOgrencileri">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SinifOgrencileri_Siniflar">
+          <End Role="Siniflar" Type="Self.Siniflar" Multiplicity="0..1" />
+          <End Role="SinifOgrencileri" Type="Self.SinifOgrencileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siniflar">
+              <PropertyRef Name="SinifID" />
+            </Principal>
+            <Dependent Role="SinifOgrencileri">
+              <PropertyRef Name="SinifID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Lise_Yönetim_DBModelStoreContainer">
+          <EntitySet Name="Bolumler" EntityType="Self.Bolumler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dersler" EntityType="Self.Dersler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DersProgramları" EntityType="Self.DersProgramları" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DersSinavlari" EntityType="Self.DersSinavlari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Duyurular" EntityType="Self.Duyurular" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgrenciBilgileri" EntityType="Self.OgrenciBilgileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgrenciDersleri" EntityType="Self.OgrenciDersleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgrenciDevamsizlik" EntityType="Self.OgrenciDevamsizlik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgrenciDisiplinKayitlari" EntityType="Self.OgrenciDisiplinKayitlari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ogrenciler" EntityType="Self.Ogrenciler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgrenciSinavlari" EntityType="Self.OgrenciSinavlari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgretmenBilgileri" EntityType="Self.OgretmenBilgileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgretmenBranslari" EntityType="Self.OgretmenBranslari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgretmenDersleri" EntityType="Self.OgretmenDersleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgretmenDevamsizlik" EntityType="Self.OgretmenDevamsizlik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OgretmenDisiplinKayitlari" EntityType="Self.OgretmenDisiplinKayitlari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ogretmenler" EntityType="Self.Ogretmenler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelBilgileri" EntityType="Self.PersonelBilgileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelDevamsizlik" EntityType="Self.PersonelDevamsizlik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personeller" EntityType="Self.Personeller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelMeslekleri" EntityType="Self.PersonelMeslekleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SinavDonemleri" EntityType="Self.SinavDonemleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Siniflar" EntityType="Self.Siniflar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SinifOgrencileri" EntityType="Self.SinifOgrencileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subeler" EntityType="Self.Subeler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DersProgramları_Siniflar" Association="Self.FK_DersProgramları_Siniflar">
+            <End Role="Siniflar" EntitySet="Siniflar" />
+            <End Role="DersProgramları" EntitySet="DersProgramları" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DersSinavlari_Dersler" Association="Self.FK_DersSinavlari_Dersler">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="DersSinavlari" EntitySet="DersSinavlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DersSinavlari_OgrenciSinavlari" Association="Self.FK_DersSinavlari_OgrenciSinavlari">
+            <End Role="OgrenciSinavlari" EntitySet="OgrenciSinavlari" />
+            <End Role="DersSinavlari" EntitySet="DersSinavlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DersSinavlari_SinavDonemleri" Association="Self.FK_DersSinavlari_SinavDonemleri">
+            <End Role="SinavDonemleri" EntitySet="SinavDonemleri" />
+            <End Role="DersSinavlari" EntitySet="DersSinavlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Duyurular_Personeller" Association="Self.FK_Duyurular_Personeller">
+            <End Role="Personeller" EntitySet="Personeller" />
+            <End Role="Duyurular" EntitySet="Duyurular" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciBilgileri_Ogrenciler" Association="Self.FK_OgrenciBilgileri_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="OgrenciBilgileri" EntitySet="OgrenciBilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciDersleri_Dersler" Association="Self.FK_OgrenciDersleri_Dersler">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="OgrenciDersleri" EntitySet="OgrenciDersleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciDersleri_Ogrenciler" Association="Self.FK_OgrenciDersleri_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="OgrenciDersleri" EntitySet="OgrenciDersleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciDevamsizlik_Ogrenciler" Association="Self.FK_OgrenciDevamsizlik_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="OgrenciDevamsizlik" EntitySet="OgrenciDevamsizlik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciDisiplinKayitlari_Ogrenciler" Association="Self.FK_OgrenciDisiplinKayitlari_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="OgrenciDisiplinKayitlari" EntitySet="OgrenciDisiplinKayitlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciDisiplinKayitlari_Ogretmenler" Association="Self.FK_OgrenciDisiplinKayitlari_Ogretmenler">
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+            <End Role="OgrenciDisiplinKayitlari" EntitySet="OgrenciDisiplinKayitlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogrenciler_Kullanicilar" Association="Self.FK_Ogrenciler_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciSinavlari_Kullanicilar" Association="Self.FK_OgrenciSinavlari_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="OgrenciSinavlari" EntitySet="OgrenciSinavlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciSinavlari_Ogrenciler" Association="Self.FK_OgrenciSinavlari_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="OgrenciSinavlari" EntitySet="OgrenciSinavlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgretmenBilgileri_Ogretmenler" Association="Self.FK_OgretmenBilgileri_Ogretmenler">
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+            <End Role="OgretmenBilgileri" EntitySet="OgretmenBilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgretmenDersleri_Dersler" Association="Self.FK_OgretmenDersleri_Dersler">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="OgretmenDersleri" EntitySet="OgretmenDersleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgretmenDersleri_Ogretmenler" Association="Self.FK_OgretmenDersleri_Ogretmenler">
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+            <End Role="OgretmenDersleri" EntitySet="OgretmenDersleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgretmenDevamsizlik_Ogretmenler" Association="Self.FK_OgretmenDevamsizlik_Ogretmenler">
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+            <End Role="OgretmenDevamsizlik" EntitySet="OgretmenDevamsizlik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgretmenDisiplinKayitlari_Ogretmenler" Association="Self.FK_OgretmenDisiplinKayitlari_Ogretmenler">
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+            <End Role="OgretmenDisiplinKayitlari" EntitySet="OgretmenDisiplinKayitlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogretmenler_Kullanicilar" Association="Self.FK_Ogretmenler_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogretmenler_OgretmenBranslari" Association="Self.FK_Ogretmenler_OgretmenBranslari">
+            <End Role="OgretmenBranslari" EntitySet="OgretmenBranslari" />
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelBilgileri_Personeller" Association="Self.FK_PersonelBilgileri_Personeller">
+            <End Role="Personeller" EntitySet="Personeller" />
+            <End Role="PersonelBilgileri" EntitySet="PersonelBilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelDevamsizlik_Personeller" Association="Self.FK_PersonelDevamsizlik_Personeller">
+            <End Role="Personeller" EntitySet="Personeller" />
+            <End Role="PersonelDevamsizlik" EntitySet="PersonelDevamsizlik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personeller_PersonelMeslekleri" Association="Self.FK_Personeller_PersonelMeslekleri">
+            <End Role="PersonelMeslekleri" EntitySet="PersonelMeslekleri" />
+            <End Role="Personeller" EntitySet="Personeller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Siniflar_Bolumler" Association="Self.FK_Siniflar_Bolumler">
+            <End Role="Bolumler" EntitySet="Bolumler" />
+            <End Role="Siniflar" EntitySet="Siniflar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Siniflar_Subeler" Association="Self.FK_Siniflar_Subeler">
+            <End Role="Subeler" EntitySet="Subeler" />
+            <End Role="Siniflar" EntitySet="Siniflar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SinifOgrencileri_Ogrenciler" Association="Self.FK_SinifOgrencileri_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="SinifOgrencileri" EntitySet="SinifOgrencileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SinifOgrencileri_Siniflar" Association="Self.FK_SinifOgrencileri_Siniflar">
+            <End Role="Siniflar" EntitySet="Siniflar" />
+            <End Role="SinifOgrencileri" EntitySet="SinifOgrencileri" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Lise_Yönetim_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Lise_Yönetim_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bolumler" EntityType="Lise_Yönetim_DBModel.Bolumler" />
+          <EntitySet Name="Dersler" EntityType="Lise_Yönetim_DBModel.Dersler" />
+          <EntitySet Name="DersProgramları" EntityType="Lise_Yönetim_DBModel.DersProgramları" />
+          <EntitySet Name="DersSinavlari" EntityType="Lise_Yönetim_DBModel.DersSinavlari" />
+          <EntitySet Name="Duyurular" EntityType="Lise_Yönetim_DBModel.Duyurular" />
+          <EntitySet Name="Kullanicilar" EntityType="Lise_Yönetim_DBModel.Kullanicilar" />
+          <EntitySet Name="OgrenciBilgileri" EntityType="Lise_Yönetim_DBModel.OgrenciBilgileri" />
+          <EntitySet Name="OgrenciDersleri" EntityType="Lise_Yönetim_DBModel.OgrenciDersleri" />
+          <EntitySet Name="OgrenciDevamsizlik" EntityType="Lise_Yönetim_DBModel.OgrenciDevamsizlik" />
+          <EntitySet Name="OgrenciDisiplinKayitlari" EntityType="Lise_Yönetim_DBModel.OgrenciDisiplinKayitlari" />
+          <EntitySet Name="Ogrenciler" EntityType="Lise_Yönetim_DBModel.Ogrenciler" />
+          <EntitySet Name="OgrenciSinavlari" EntityType="Lise_Yönetim_DBModel.OgrenciSinavlari" />
+          <EntitySet Name="OgretmenBilgileri" EntityType="Lise_Yönetim_DBModel.OgretmenBilgileri" />
+          <EntitySet Name="OgretmenBranslari" EntityType="Lise_Yönetim_DBModel.OgretmenBranslari" />
+          <EntitySet Name="OgretmenDersleri" EntityType="Lise_Yönetim_DBModel.OgretmenDersleri" />
+          <EntitySet Name="OgretmenDevamsizlik" EntityType="Lise_Yönetim_DBModel.OgretmenDevamsizlik" />
+          <EntitySet Name="OgretmenDisiplinKayitlari" EntityType="Lise_Yönetim_DBModel.OgretmenDisiplinKayitlari" />
+          <EntitySet Name="Ogretmenler" EntityType="Lise_Yönetim_DBModel.Ogretmenler" />
+          <EntitySet Name="PersonelBilgileri" EntityType="Lise_Yönetim_DBModel.PersonelBilgileri" />
+          <EntitySet Name="PersonelDevamsizlik" EntityType="Lise_Yönetim_DBModel.PersonelDevamsizlik" />
+          <EntitySet Name="Personeller" EntityType="Lise_Yönetim_DBModel.Personeller" />
+          <EntitySet Name="PersonelMeslekleri" EntityType="Lise_Yönetim_DBModel.PersonelMeslekleri" />
+          <EntitySet Name="SinavDonemleri" EntityType="Lise_Yönetim_DBModel.SinavDonemleri" />
+          <EntitySet Name="Siniflar" EntityType="Lise_Yönetim_DBModel.Siniflar" />
+          <EntitySet Name="SinifOgrencileri" EntityType="Lise_Yönetim_DBModel.SinifOgrencileri" />
+          <EntitySet Name="Subeler" EntityType="Lise_Yönetim_DBModel.Subeler" />
+          <EntitySet Name="sysdiagrams" EntityType="Lise_Yönetim_DBModel.sysdiagrams" />
+          <AssociationSet Name="FK_Siniflar_Bolumler" Association="Lise_Yönetim_DBModel.FK_Siniflar_Bolumler">
+            <End Role="Bolumler" EntitySet="Bolumler" />
+            <End Role="Siniflar" EntitySet="Siniflar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DersSinavlari_Dersler" Association="Lise_Yönetim_DBModel.FK_DersSinavlari_Dersler">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="DersSinavlari" EntitySet="DersSinavlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciDersleri_Dersler" Association="Lise_Yönetim_DBModel.FK_OgrenciDersleri_Dersler">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="OgrenciDersleri" EntitySet="OgrenciDersleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgretmenDersleri_Dersler" Association="Lise_Yönetim_DBModel.FK_OgretmenDersleri_Dersler">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="OgretmenDersleri" EntitySet="OgretmenDersleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DersProgramları_Siniflar" Association="Lise_Yönetim_DBModel.FK_DersProgramları_Siniflar">
+            <End Role="Siniflar" EntitySet="Siniflar" />
+            <End Role="DersProgramları" EntitySet="DersProgramları" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DersSinavlari_OgrenciSinavlari" Association="Lise_Yönetim_DBModel.FK_DersSinavlari_OgrenciSinavlari">
+            <End Role="OgrenciSinavlari" EntitySet="OgrenciSinavlari" />
+            <End Role="DersSinavlari" EntitySet="DersSinavlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DersSinavlari_SinavDonemleri" Association="Lise_Yönetim_DBModel.FK_DersSinavlari_SinavDonemleri">
+            <End Role="SinavDonemleri" EntitySet="SinavDonemleri" />
+            <End Role="DersSinavlari" EntitySet="DersSinavlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Duyurular_Personeller" Association="Lise_Yönetim_DBModel.FK_Duyurular_Personeller">
+            <End Role="Personeller" EntitySet="Personeller" />
+            <End Role="Duyurular" EntitySet="Duyurular" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogrenciler_Kullanicilar" Association="Lise_Yönetim_DBModel.FK_Ogrenciler_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciSinavlari_Kullanicilar" Association="Lise_Yönetim_DBModel.FK_OgrenciSinavlari_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="OgrenciSinavlari" EntitySet="OgrenciSinavlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogretmenler_Kullanicilar" Association="Lise_Yönetim_DBModel.FK_Ogretmenler_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciBilgileri_Ogrenciler" Association="Lise_Yönetim_DBModel.FK_OgrenciBilgileri_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="OgrenciBilgileri" EntitySet="OgrenciBilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciDersleri_Ogrenciler" Association="Lise_Yönetim_DBModel.FK_OgrenciDersleri_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="OgrenciDersleri" EntitySet="OgrenciDersleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciDevamsizlik_Ogrenciler" Association="Lise_Yönetim_DBModel.FK_OgrenciDevamsizlik_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="OgrenciDevamsizlik" EntitySet="OgrenciDevamsizlik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciDisiplinKayitlari_Ogrenciler" Association="Lise_Yönetim_DBModel.FK_OgrenciDisiplinKayitlari_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="OgrenciDisiplinKayitlari" EntitySet="OgrenciDisiplinKayitlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciDisiplinKayitlari_Ogretmenler" Association="Lise_Yönetim_DBModel.FK_OgrenciDisiplinKayitlari_Ogretmenler">
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+            <End Role="OgrenciDisiplinKayitlari" EntitySet="OgrenciDisiplinKayitlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgrenciSinavlari_Ogrenciler" Association="Lise_Yönetim_DBModel.FK_OgrenciSinavlari_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="OgrenciSinavlari" EntitySet="OgrenciSinavlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SinifOgrencileri_Ogrenciler" Association="Lise_Yönetim_DBModel.FK_SinifOgrencileri_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="SinifOgrencileri" EntitySet="SinifOgrencileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgretmenBilgileri_Ogretmenler" Association="Lise_Yönetim_DBModel.FK_OgretmenBilgileri_Ogretmenler">
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+            <End Role="OgretmenBilgileri" EntitySet="OgretmenBilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogretmenler_OgretmenBranslari" Association="Lise_Yönetim_DBModel.FK_Ogretmenler_OgretmenBranslari">
+            <End Role="OgretmenBranslari" EntitySet="OgretmenBranslari" />
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgretmenDersleri_Ogretmenler" Association="Lise_Yönetim_DBModel.FK_OgretmenDersleri_Ogretmenler">
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+            <End Role="OgretmenDersleri" EntitySet="OgretmenDersleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgretmenDevamsizlik_Ogretmenler" Association="Lise_Yönetim_DBModel.FK_OgretmenDevamsizlik_Ogretmenler">
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+            <End Role="OgretmenDevamsizlik" EntitySet="OgretmenDevamsizlik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OgretmenDisiplinKayitlari_Ogretmenler" Association="Lise_Yönetim_DBModel.FK_OgretmenDisiplinKayitlari_Ogretmenler">
+            <End Role="Ogretmenler" EntitySet="Ogretmenler" />
+            <End Role="OgretmenDisiplinKayitlari" EntitySet="OgretmenDisiplinKayitlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelBilgileri_Personeller" Association="Lise_Yönetim_DBModel.FK_PersonelBilgileri_Personeller">
+            <End Role="Personeller" EntitySet="Personeller" />
+            <End Role="PersonelBilgileri" EntitySet="PersonelBilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonelDevamsizlik_Personeller" Association="Lise_Yönetim_DBModel.FK_PersonelDevamsizlik_Personeller">
+            <End Role="Personeller" EntitySet="Personeller" />
+            <End Role="PersonelDevamsizlik" EntitySet="PersonelDevamsizlik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personeller_PersonelMeslekleri" Association="Lise_Yönetim_DBModel.FK_Personeller_PersonelMeslekleri">
+            <End Role="PersonelMeslekleri" EntitySet="PersonelMeslekleri" />
+            <End Role="Personeller" EntitySet="Personeller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Siniflar_Subeler" Association="Lise_Yönetim_DBModel.FK_Siniflar_Subeler">
+            <End Role="Subeler" EntitySet="Subeler" />
+            <End Role="Siniflar" EntitySet="Siniflar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SinifOgrencileri_Siniflar" Association="Lise_Yönetim_DBModel.FK_SinifOgrencileri_Siniflar">
+            <End Role="Siniflar" EntitySet="Siniflar" />
+            <End Role="SinifOgrencileri" EntitySet="SinifOgrencileri" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Bolumler">
+          <Key>
+            <PropertyRef Name="BolumID" />
+          </Key>
+          <Property Name="BolumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BolumAdi" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BolumAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Siniflar" Relationship="Lise_Yönetim_DBModel.FK_Siniflar_Bolumler" FromRole="Bolumler" ToRole="Siniflar" />
+        </EntityType>
+        <EntityType Name="Dersler">
+          <Key>
+            <PropertyRef Name="DersID" />
+          </Key>
+          <Property Name="DersID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DersAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DersSinavlari" Relationship="Lise_Yönetim_DBModel.FK_DersSinavlari_Dersler" FromRole="Dersler" ToRole="DersSinavlari" />
+          <NavigationProperty Name="OgrenciDersleri" Relationship="Lise_Yönetim_DBModel.FK_OgrenciDersleri_Dersler" FromRole="Dersler" ToRole="OgrenciDersleri" />
+          <NavigationProperty Name="OgretmenDersleri" Relationship="Lise_Yönetim_DBModel.FK_OgretmenDersleri_Dersler" FromRole="Dersler" ToRole="OgretmenDersleri" />
+        </EntityType>
+        <EntityType Name="DersProgramları">
+          <Key>
+            <PropertyRef Name="DersProgramiID" />
+          </Key>
+          <Property Name="SinifID" Type="Int32" Nullable="false" />
+          <Property Name="DosyaEki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DersProgramiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Siniflar" Relationship="Lise_Yönetim_DBModel.FK_DersProgramları_Siniflar" FromRole="DersProgramları" ToRole="Siniflar" />
+        </EntityType>
+        <EntityType Name="DersSinavlari">
+          <Key>
+            <PropertyRef Name="DersSinavlariID" />
+          </Key>
+          <Property Name="DersSinavlariID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DersID" Type="Int32" Nullable="false" />
+          <Property Name="SinavDonemID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dersler" Relationship="Lise_Yönetim_DBModel.FK_DersSinavlari_Dersler" FromRole="DersSinavlari" ToRole="Dersler" />
+          <NavigationProperty Name="OgrenciSinavlari" Relationship="Lise_Yönetim_DBModel.FK_DersSinavlari_OgrenciSinavlari" FromRole="DersSinavlari" ToRole="OgrenciSinavlari" />
+          <NavigationProperty Name="SinavDonemleri" Relationship="Lise_Yönetim_DBModel.FK_DersSinavlari_SinavDonemleri" FromRole="DersSinavlari" ToRole="SinavDonemleri" />
+        </EntityType>
+        <EntityType Name="Duyurular">
+          <Key>
+            <PropertyRef Name="DuyuruID" />
+          </Key>
+          <Property Name="DuyuruID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DuyuruMetin" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DuyuruTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DosyaEki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SorumluPersonel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Personeller" Relationship="Lise_Yönetim_DBModel.FK_Duyurular_Personeller" FromRole="Duyurular" ToRole="Personeller" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciSoyadi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciTC" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciDogumGunu" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Lise_Yönetim_DBModel.FK_Ogrenciler_Kullanicilar" FromRole="Kullanicilar" ToRole="Ogrenciler" />
+          <NavigationProperty Name="OgrenciSinavlari" Relationship="Lise_Yönetim_DBModel.FK_OgrenciSinavlari_Kullanicilar" FromRole="Kullanicilar" ToRole="OgrenciSinavlari" />
+          <NavigationProperty Name="Ogretmenler" Relationship="Lise_Yönetim_DBModel.FK_Ogretmenler_Kullanicilar" FromRole="Kullanicilar" ToRole="Ogretmenler" />
+        </EntityType>
+        <EntityType Name="OgrenciBilgileri">
+          <Key>
+            <PropertyRef Name="OgrenciID" />
+          </Key>
+          <Property Name="OgrenciID" Type="Int32" Nullable="false" />
+          <Property Name="OgrenciTelefonu" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="OgrenciMailAdresi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OgrenciEvAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VeliAdiSoyadi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VeliTelefonu" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Veli2AdiSoyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VeliTelefonu2" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="OgrenciDogumTarihi" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Lise_Yönetim_DBModel.FK_OgrenciBilgileri_Ogrenciler" FromRole="OgrenciBilgileri" ToRole="Ogrenciler" />
+        </EntityType>
+        <EntityType Name="OgrenciDersleri">
+          <Key>
+            <PropertyRef Name="OgrenciDersleriID" />
+          </Key>
+          <Property Name="OgrenciDersleriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrenciID" Type="Int32" />
+          <Property Name="DersID" Type="Int32" />
+          <NavigationProperty Name="Dersler" Relationship="Lise_Yönetim_DBModel.FK_OgrenciDersleri_Dersler" FromRole="OgrenciDersleri" ToRole="Dersler" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Lise_Yönetim_DBModel.FK_OgrenciDersleri_Ogrenciler" FromRole="OgrenciDersleri" ToRole="Ogrenciler" />
+        </EntityType>
+        <EntityType Name="OgrenciDevamsizlik">
+          <Key>
+            <PropertyRef Name="OgrenciDevamsizlikID" />
+          </Key>
+          <Property Name="OgrenciDevamsizlikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrenciID" Type="Int32" Nullable="false" />
+          <Property Name="DevamsizlikTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Mazereti" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RaporBilgisi" Type="Boolean" Nullable="false" />
+          <Property Name="VeliBilgilendirilmesi" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Lise_Yönetim_DBModel.FK_OgrenciDevamsizlik_Ogrenciler" FromRole="OgrenciDevamsizlik" ToRole="Ogrenciler" />
+        </EntityType>
+        <EntityType Name="OgrenciDisiplinKayitlari">
+          <Key>
+            <PropertyRef Name="DisiplinID" />
+          </Key>
+          <Property Name="DisiplinID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrenciID" Type="Int32" />
+          <Property Name="DisiplinSebebi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SorumluOgretmen" Type="Int32" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Lise_Yönetim_DBModel.FK_OgrenciDisiplinKayitlari_Ogrenciler" FromRole="OgrenciDisiplinKayitlari" ToRole="Ogrenciler" />
+          <NavigationProperty Name="Ogretmenler" Relationship="Lise_Yönetim_DBModel.FK_OgrenciDisiplinKayitlari_Ogretmenler" FromRole="OgrenciDisiplinKayitlari" ToRole="Ogretmenler" />
+        </EntityType>
+        <EntityType Name="Ogrenciler">
+          <Key>
+            <PropertyRef Name="OgrenciID" />
+          </Key>
+          <Property Name="OgrenciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrenciAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="OgrenciSoyadi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="OgrenciKimlikNo" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kullanicilar" Relationship="Lise_Yönetim_DBModel.FK_Ogrenciler_Kullanicilar" FromRole="Ogrenciler" ToRole="Kullanicilar" />
+          <NavigationProperty Name="OgrenciBilgileri" Relationship="Lise_Yönetim_DBModel.FK_OgrenciBilgileri_Ogrenciler" FromRole="Ogrenciler" ToRole="OgrenciBilgileri" />
+          <NavigationProperty Name="OgrenciDersleri" Relationship="Lise_Yönetim_DBModel.FK_OgrenciDersleri_Ogrenciler" FromRole="Ogrenciler" ToRole="OgrenciDersleri" />
+          <NavigationProperty Name="OgrenciDevamsizlik" Relationship="Lise_Yönetim_DBModel.FK_OgrenciDevamsizlik_Ogrenciler" FromRole="Ogrenciler" ToRole="OgrenciDevamsizlik" />
+          <NavigationProperty Name="OgrenciDisiplinKayitlari" Relationship="Lise_Yönetim_DBModel.FK_OgrenciDisiplinKayitlari_Ogrenciler" FromRole="Ogrenciler" ToRole="OgrenciDisiplinKayitlari" />
+          <NavigationProperty Name="OgrenciSinavlari" Relationship="Lise_Yönetim_DBModel.FK_OgrenciSinavlari_Ogrenciler" FromRole="Ogrenciler" ToRole="OgrenciSinavlari" />
+          <NavigationProperty Name="SinifOgrencileri" Relationship="Lise_Yönetim_DBModel.FK_SinifOgrencileri_Ogrenciler" FromRole="Ogrenciler" ToRole="SinifOgrencileri" />
+        </EntityType>
+        <EntityType Name="OgrenciSinavlari">
+          <Key>
+            <PropertyRef Name="OgrenciSinavlariID" />
+          </Key>
+          <Property Name="OgrenciSinavlariID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrenciID" Type="Int32" />
+          <Property Name="SinavNotu" Type="Int32" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DersSinavlari" Relationship="Lise_Yönetim_DBModel.FK_DersSinavlari_OgrenciSinavlari" FromRole="OgrenciSinavlari" ToRole="DersSinavlari" />
+          <NavigationProperty Name="Kullanicilar" Relationship="Lise_Yönetim_DBModel.FK_OgrenciSinavlari_Kullanicilar" FromRole="OgrenciSinavlari" ToRole="Kullanicilar" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Lise_Yönetim_DBModel.FK_OgrenciSinavlari_Ogrenciler" FromRole="OgrenciSinavlari" ToRole="Ogrenciler" />
+        </EntityType>
+        <EntityType Name="OgretmenBilgileri">
+          <Key>
+            <PropertyRef Name="OgretmenID" />
+          </Key>
+          <Property Name="OgretmenID" Type="Int32" Nullable="false" />
+          <Property Name="OgretmenTelefonu" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="OgretmenMailAdresi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OgretmenEvAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgretmenDogumTarihi" Type="DateTime" Precision="0" />
+          <Property Name="OgretmenMedeniDurum" Type="Boolean" />
+          <NavigationProperty Name="Ogretmenler" Relationship="Lise_Yönetim_DBModel.FK_OgretmenBilgileri_Ogretmenler" FromRole="OgretmenBilgileri" ToRole="Ogretmenler" />
+        </EntityType>
+        <EntityType Name="OgretmenBranslari">
+          <Key>
+            <PropertyRef Name="BransID" />
+          </Key>
+          <Property Name="BransID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BransAdi" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ogretmenler" Relationship="Lise_Yönetim_DBModel.FK_Ogretmenler_OgretmenBranslari" FromRole="OgretmenBranslari" ToRole="Ogretmenler" />
+        </EntityType>
+        <EntityType Name="OgretmenDersleri">
+          <Key>
+            <PropertyRef Name="OgretmenDersleriID" />
+          </Key>
+          <Property Name="OgretmenDersleriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgretmenID" Type="Int32" Nullable="false" />
+          <Property Name="DersID" Type="Int32" />
+          <NavigationProperty Name="Dersler" Relationship="Lise_Yönetim_DBModel.FK_OgretmenDersleri_Dersler" FromRole="OgretmenDersleri" ToRole="Dersler" />
+          <NavigationProperty Name="Ogretmenler" Relationship="Lise_Yönetim_DBModel.FK_OgretmenDersleri_Ogretmenler" FromRole="OgretmenDersleri" ToRole="Ogretmenler" />
+        </EntityType>
+        <EntityType Name="OgretmenDevamsizlik">
+          <Key>
+            <PropertyRef Name="OgretmenDevamsizlikID" />
+          </Key>
+          <Property Name="OgretmenDevamsizlikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgretmenID" Type="Int32" />
+          <Property Name="DevamsizlikTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Mazereti" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RaporBilgisi" Type="Boolean" />
+          <NavigationProperty Name="Ogretmenler" Relationship="Lise_Yönetim_DBModel.FK_OgretmenDevamsizlik_Ogretmenler" FromRole="OgretmenDevamsizlik" ToRole="Ogretmenler" />
+        </EntityType>
+        <EntityType Name="OgretmenDisiplinKayitlari">
+          <Key>
+            <PropertyRef Name="DisiplinID" />
+          </Key>
+          <Property Name="DisiplinID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgretmenID" Type="Int32" />
+          <Property Name="DisiplinSebebi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ogretmenler" Relationship="Lise_Yönetim_DBModel.FK_OgretmenDisiplinKayitlari_Ogretmenler" FromRole="OgretmenDisiplinKayitlari" ToRole="Ogretmenler" />
+        </EntityType>
+        <EntityType Name="Ogretmenler">
+          <Key>
+            <PropertyRef Name="OgretmenID" />
+          </Key>
+          <Property Name="OgretmenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgretmenAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="OgretmenSoyadi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="OgretmenKimlikNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="OgretmenBrans" Type="Int32" />
+          <Property Name="KullaniciID" Type="Int32" />
+          <NavigationProperty Name="Kullanicilar" Relationship="Lise_Yönetim_DBModel.FK_Ogretmenler_Kullanicilar" FromRole="Ogretmenler" ToRole="Kullanicilar" />
+          <NavigationProperty Name="OgrenciDisiplinKayitlari" Relationship="Lise_Yönetim_DBModel.FK_OgrenciDisiplinKayitlari_Ogretmenler" FromRole="Ogretmenler" ToRole="OgrenciDisiplinKayitlari" />
+          <NavigationProperty Name="OgretmenBilgileri" Relationship="Lise_Yönetim_DBModel.FK_OgretmenBilgileri_Ogretmenler" FromRole="Ogretmenler" ToRole="OgretmenBilgileri" />
+          <NavigationProperty Name="OgretmenBranslari" Relationship="Lise_Yönetim_DBModel.FK_Ogretmenler_OgretmenBranslari" FromRole="Ogretmenler" ToRole="OgretmenBranslari" />
+          <NavigationProperty Name="OgretmenDersleri" Relationship="Lise_Yönetim_DBModel.FK_OgretmenDersleri_Ogretmenler" FromRole="Ogretmenler" ToRole="OgretmenDersleri" />
+          <NavigationProperty Name="OgretmenDevamsizlik" Relationship="Lise_Yönetim_DBModel.FK_OgretmenDevamsizlik_Ogretmenler" FromRole="Ogretmenler" ToRole="OgretmenDevamsizlik" />
+          <NavigationProperty Name="OgretmenDisiplinKayitlari" Relationship="Lise_Yönetim_DBModel.FK_OgretmenDisiplinKayitlari_Ogretmenler" FromRole="Ogretmenler" ToRole="OgretmenDisiplinKayitlari" />
+        </EntityType>
+        <EntityType Name="PersonelBilgileri">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="Int32" Nullable="false" />
+          <Property Name="PersonelTelefonu" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelMailAdresi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelEvAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelDogumTarihi" Type="DateTime" Precision="0" />
+          <Property Name="PersonelMedeniDurumu" Type="Boolean" />
+          <NavigationProperty Name="Personeller" Relationship="Lise_Yönetim_DBModel.FK_PersonelBilgileri_Personeller" FromRole="PersonelBilgileri" ToRole="Personeller" />
+        </EntityType>
+        <EntityType Name="PersonelDevamsizlik">
+          <Key>
+            <PropertyRef Name="PersonelDevamsızlıkID" />
+          </Key>
+          <Property Name="PersonelDevamsızlıkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelID" Type="Int32" Nullable="false" />
+          <Property Name="DevamsizlikTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Mazereti" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RaporBilgisi" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Personeller" Relationship="Lise_Yönetim_DBModel.FK_PersonelDevamsizlik_Personeller" FromRole="PersonelDevamsizlik" ToRole="Personeller" />
+        </EntityType>
+        <EntityType Name="Personeller">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelSoyadi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelKimlikNo" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelMeslekID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Duyurular" Relationship="Lise_Yönetim_DBModel.FK_Duyurular_Personeller" FromRole="Personeller" ToRole="Duyurular" />
+          <NavigationProperty Name="PersonelBilgileri" Relationship="Lise_Yönetim_DBModel.FK_PersonelBilgileri_Personeller" FromRole="Personeller" ToRole="PersonelBilgileri" />
+          <NavigationProperty Name="PersonelDevamsizlik" Relationship="Lise_Yönetim_DBModel.FK_PersonelDevamsizlik_Personeller" FromRole="Personeller" ToRole="PersonelDevamsizlik" />
+          <NavigationProperty Name="PersonelMeslekleri" Relationship="Lise_Yönetim_DBModel.FK_Personeller_PersonelMeslekleri" FromRole="Personeller" ToRole="PersonelMeslekleri" />
+        </EntityType>
+        <EntityType Name="PersonelMeslekleri">
+          <Key>
+            <PropertyRef Name="MeslekID" />
+          </Key>
+          <Property Name="MeslekID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MeslekAdi" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MeslekAçiklamasi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Personeller" Relationship="Lise_Yönetim_DBModel.FK_Personeller_PersonelMeslekleri" FromRole="PersonelMeslekleri" ToRole="Personeller" />
+        </EntityType>
+        <EntityType Name="SinavDonemleri">
+          <Key>
+            <PropertyRef Name="SinavDönemID" />
+          </Key>
+          <Property Name="SinavDönemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SinavDönemAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DersSinavlari" Relationship="Lise_Yönetim_DBModel.FK_DersSinavlari_SinavDonemleri" FromRole="SinavDonemleri" ToRole="DersSinavlari" />
+        </EntityType>
+        <EntityType Name="Siniflar">
+          <Key>
+            <PropertyRef Name="SinifID" />
+          </Key>
+          <Property Name="SinifID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SinifNo" Type="Int32" Nullable="false" />
+          <Property Name="BolumID" Type="Int32" Nullable="false" />
+          <Property Name="SubeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bolumler" Relationship="Lise_Yönetim_DBModel.FK_Siniflar_Bolumler" FromRole="Siniflar" ToRole="Bolumler" />
+          <NavigationProperty Name="DersProgramları" Relationship="Lise_Yönetim_DBModel.FK_DersProgramları_Siniflar" FromRole="Siniflar" ToRole="DersProgramları" />
+          <NavigationProperty Name="Subeler" Relationship="Lise_Yönetim_DBModel.FK_Siniflar_Subeler" FromRole="Siniflar" ToRole="Subeler" />
+          <NavigationProperty Name="SinifOgrencileri" Relationship="Lise_Yönetim_DBModel.FK_SinifOgrencileri_Siniflar" FromRole="Siniflar" ToRole="SinifOgrencileri" />
+        </EntityType>
+        <EntityType Name="SinifOgrencileri">
+          <Key>
+            <PropertyRef Name="SinifOgrencileriID" />
+          </Key>
+          <Property Name="SinifOgrencileriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SinifID" Type="Int32" />
+          <Property Name="OgrenciID" Type="Int32" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Lise_Yönetim_DBModel.FK_SinifOgrencileri_Ogrenciler" FromRole="SinifOgrencileri" ToRole="Ogrenciler" />
+          <NavigationProperty Name="Siniflar" Relationship="Lise_Yönetim_DBModel.FK_SinifOgrencileri_Siniflar" FromRole="SinifOgrencileri" ToRole="Siniflar" />
+        </EntityType>
+        <EntityType Name="Subeler">
+          <Key>
+            <PropertyRef Name="SubeID" />
+          </Key>
+          <Property Name="SubeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubeAdi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Siniflar" Relationship="Lise_Yönetim_DBModel.FK_Siniflar_Subeler" FromRole="Subeler" ToRole="Siniflar" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Siniflar_Bolumler">
+          <End Type="Lise_Yönetim_DBModel.Bolumler" Role="Bolumler" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.Siniflar" Role="Siniflar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolumler">
+              <PropertyRef Name="BolumID" />
+            </Principal>
+            <Dependent Role="Siniflar">
+              <PropertyRef Name="BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DersSinavlari_Dersler">
+          <End Type="Lise_Yönetim_DBModel.Dersler" Role="Dersler" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.DersSinavlari" Role="DersSinavlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="DersID" />
+            </Principal>
+            <Dependent Role="DersSinavlari">
+              <PropertyRef Name="DersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciDersleri_Dersler">
+          <End Type="Lise_Yönetim_DBModel.Dersler" Role="Dersler" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.OgrenciDersleri" Role="OgrenciDersleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="DersID" />
+            </Principal>
+            <Dependent Role="OgrenciDersleri">
+              <PropertyRef Name="DersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgretmenDersleri_Dersler">
+          <End Type="Lise_Yönetim_DBModel.Dersler" Role="Dersler" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.OgretmenDersleri" Role="OgretmenDersleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="DersID" />
+            </Principal>
+            <Dependent Role="OgretmenDersleri">
+              <PropertyRef Name="DersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DersProgramları_Siniflar">
+          <End Type="Lise_Yönetim_DBModel.Siniflar" Role="Siniflar" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.DersProgramları" Role="DersProgramları" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siniflar">
+              <PropertyRef Name="SinifID" />
+            </Principal>
+            <Dependent Role="DersProgramları">
+              <PropertyRef Name="SinifID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DersSinavlari_OgrenciSinavlari">
+          <End Type="Lise_Yönetim_DBModel.OgrenciSinavlari" Role="OgrenciSinavlari" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.DersSinavlari" Role="DersSinavlari" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OgrenciSinavlari">
+              <PropertyRef Name="OgrenciSinavlariID" />
+            </Principal>
+            <Dependent Role="DersSinavlari">
+              <PropertyRef Name="DersSinavlariID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DersSinavlari_SinavDonemleri">
+          <End Type="Lise_Yönetim_DBModel.SinavDonemleri" Role="SinavDonemleri" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.DersSinavlari" Role="DersSinavlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SinavDonemleri">
+              <PropertyRef Name="SinavDönemID" />
+            </Principal>
+            <Dependent Role="DersSinavlari">
+              <PropertyRef Name="SinavDonemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Duyurular_Personeller">
+          <End Type="Lise_Yönetim_DBModel.Personeller" Role="Personeller" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.Duyurular" Role="Duyurular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personeller">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="Duyurular">
+              <PropertyRef Name="SorumluPersonel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogrenciler_Kullanicilar">
+          <End Type="Lise_Yönetim_DBModel.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.Ogrenciler" Role="Ogrenciler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Ogrenciler">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciSinavlari_Kullanicilar">
+          <End Type="Lise_Yönetim_DBModel.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.OgrenciSinavlari" Role="OgrenciSinavlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="OgrenciSinavlari">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogretmenler_Kullanicilar">
+          <End Type="Lise_Yönetim_DBModel.Kullanicilar" Role="Kullanicilar" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.Ogretmenler" Role="Ogretmenler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Ogretmenler">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciBilgileri_Ogrenciler">
+          <End Type="Lise_Yönetim_DBModel.Ogrenciler" Role="Ogrenciler" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.OgrenciBilgileri" Role="OgrenciBilgileri" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="OgrenciBilgileri">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciDersleri_Ogrenciler">
+          <End Type="Lise_Yönetim_DBModel.Ogrenciler" Role="Ogrenciler" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.OgrenciDersleri" Role="OgrenciDersleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="OgrenciDersleri">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciDevamsizlik_Ogrenciler">
+          <End Type="Lise_Yönetim_DBModel.Ogrenciler" Role="Ogrenciler" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.OgrenciDevamsizlik" Role="OgrenciDevamsizlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="OgrenciDevamsizlik">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciDisiplinKayitlari_Ogrenciler">
+          <End Type="Lise_Yönetim_DBModel.Ogrenciler" Role="Ogrenciler" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.OgrenciDisiplinKayitlari" Role="OgrenciDisiplinKayitlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="OgrenciDisiplinKayitlari">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciDisiplinKayitlari_Ogretmenler">
+          <End Type="Lise_Yönetim_DBModel.Ogretmenler" Role="Ogretmenler" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.OgrenciDisiplinKayitlari" Role="OgrenciDisiplinKayitlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogretmenler">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="OgrenciDisiplinKayitlari">
+              <PropertyRef Name="SorumluOgretmen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgrenciSinavlari_Ogrenciler">
+          <End Type="Lise_Yönetim_DBModel.Ogrenciler" Role="Ogrenciler" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.OgrenciSinavlari" Role="OgrenciSinavlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="OgrenciSinavlari">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SinifOgrencileri_Ogrenciler">
+          <End Type="Lise_Yönetim_DBModel.Ogrenciler" Role="Ogrenciler" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.SinifOgrencileri" Role="SinifOgrencileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="SinifOgrencileri">
+              <PropertyRef Name="OgrenciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgretmenBilgileri_Ogretmenler">
+          <End Type="Lise_Yönetim_DBModel.Ogretmenler" Role="Ogretmenler" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.OgretmenBilgileri" Role="OgretmenBilgileri" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ogretmenler">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="OgretmenBilgileri">
+              <PropertyRef Name="OgretmenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogretmenler_OgretmenBranslari">
+          <End Type="Lise_Yönetim_DBModel.OgretmenBranslari" Role="OgretmenBranslari" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.Ogretmenler" Role="Ogretmenler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OgretmenBranslari">
+              <PropertyRef Name="BransID" />
+            </Principal>
+            <Dependent Role="Ogretmenler">
+              <PropertyRef Name="OgretmenBrans" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgretmenDersleri_Ogretmenler">
+          <End Type="Lise_Yönetim_DBModel.Ogretmenler" Role="Ogretmenler" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.OgretmenDersleri" Role="OgretmenDersleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogretmenler">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="OgretmenDersleri">
+              <PropertyRef Name="OgretmenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgretmenDevamsizlik_Ogretmenler">
+          <End Type="Lise_Yönetim_DBModel.Ogretmenler" Role="Ogretmenler" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.OgretmenDevamsizlik" Role="OgretmenDevamsizlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogretmenler">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="OgretmenDevamsizlik">
+              <PropertyRef Name="OgretmenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OgretmenDisiplinKayitlari_Ogretmenler">
+          <End Type="Lise_Yönetim_DBModel.Ogretmenler" Role="Ogretmenler" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.OgretmenDisiplinKayitlari" Role="OgretmenDisiplinKayitlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogretmenler">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="OgretmenDisiplinKayitlari">
+              <PropertyRef Name="OgretmenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelBilgileri_Personeller">
+          <End Type="Lise_Yönetim_DBModel.Personeller" Role="Personeller" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.PersonelBilgileri" Role="PersonelBilgileri" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Personeller">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="PersonelBilgileri">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonelDevamsizlik_Personeller">
+          <End Type="Lise_Yönetim_DBModel.Personeller" Role="Personeller" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.PersonelDevamsizlik" Role="PersonelDevamsizlik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personeller">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="PersonelDevamsizlik">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personeller_PersonelMeslekleri">
+          <End Type="Lise_Yönetim_DBModel.PersonelMeslekleri" Role="PersonelMeslekleri" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.Personeller" Role="Personeller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonelMeslekleri">
+              <PropertyRef Name="MeslekID" />
+            </Principal>
+            <Dependent Role="Personeller">
+              <PropertyRef Name="PersonelMeslekID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Siniflar_Subeler">
+          <End Type="Lise_Yönetim_DBModel.Subeler" Role="Subeler" Multiplicity="1" />
+          <End Type="Lise_Yönetim_DBModel.Siniflar" Role="Siniflar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subeler">
+              <PropertyRef Name="SubeID" />
+            </Principal>
+            <Dependent Role="Siniflar">
+              <PropertyRef Name="SubeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SinifOgrencileri_Siniflar">
+          <End Type="Lise_Yönetim_DBModel.Siniflar" Role="Siniflar" Multiplicity="0..1" />
+          <End Type="Lise_Yönetim_DBModel.SinifOgrencileri" Role="SinifOgrencileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siniflar">
+              <PropertyRef Name="SinifID" />
+            </Principal>
+            <Dependent Role="SinifOgrencileri">
+              <PropertyRef Name="SinifID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Lise_Yönetim_DBModelStoreContainer" CdmEntityContainer="Lise_Yönetim_DBEntities">
+          <EntitySetMapping Name="Bolumler">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.Bolumler">
+              <MappingFragment StoreEntitySet="Bolumler">
+                <ScalarProperty Name="BolumAciklama" ColumnName="BolumAciklama" />
+                <ScalarProperty Name="BolumAdi" ColumnName="BolumAdi" />
+                <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dersler">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.Dersler">
+              <MappingFragment StoreEntitySet="Dersler">
+                <ScalarProperty Name="DersAdi" ColumnName="DersAdi" />
+                <ScalarProperty Name="DersID" ColumnName="DersID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DersProgramları">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.DersProgramları">
+              <MappingFragment StoreEntitySet="DersProgramları">
+                <ScalarProperty Name="DersProgramiID" ColumnName="DersProgramiID" />
+                <ScalarProperty Name="DosyaEki" ColumnName="DosyaEki" />
+                <ScalarProperty Name="SinifID" ColumnName="SinifID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DersSinavlari">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.DersSinavlari">
+              <MappingFragment StoreEntitySet="DersSinavlari">
+                <ScalarProperty Name="SinavDonemID" ColumnName="SinavDonemID" />
+                <ScalarProperty Name="DersID" ColumnName="DersID" />
+                <ScalarProperty Name="DersSinavlariID" ColumnName="DersSinavlariID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Duyurular">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.Duyurular">
+              <MappingFragment StoreEntitySet="Duyurular">
+                <ScalarProperty Name="SorumluPersonel" ColumnName="SorumluPersonel" />
+                <ScalarProperty Name="DosyaEki" ColumnName="DosyaEki" />
+                <ScalarProperty Name="DuyuruTarihi" ColumnName="DuyuruTarihi" />
+                <ScalarProperty Name="DuyuruMetin" ColumnName="DuyuruMetin" />
+                <ScalarProperty Name="DuyuruID" ColumnName="DuyuruID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicilar">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.Kullanicilar">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="KullaniciDogumGunu" ColumnName="KullaniciDogumGunu" />
+                <ScalarProperty Name="KullaniciTC" ColumnName="KullaniciTC" />
+                <ScalarProperty Name="KullaniciSoyadi" ColumnName="KullaniciSoyadi" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgrenciBilgileri">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.OgrenciBilgileri">
+              <MappingFragment StoreEntitySet="OgrenciBilgileri">
+                <ScalarProperty Name="OgrenciDogumTarihi" ColumnName="OgrenciDogumTarihi" />
+                <ScalarProperty Name="VeliTelefonu2" ColumnName="VeliTelefonu2" />
+                <ScalarProperty Name="Veli2AdiSoyadi" ColumnName="Veli2AdiSoyadi" />
+                <ScalarProperty Name="VeliTelefonu" ColumnName="VeliTelefonu" />
+                <ScalarProperty Name="VeliAdiSoyadi" ColumnName="VeliAdiSoyadi" />
+                <ScalarProperty Name="OgrenciEvAdresi" ColumnName="OgrenciEvAdresi" />
+                <ScalarProperty Name="OgrenciMailAdresi" ColumnName="OgrenciMailAdresi" />
+                <ScalarProperty Name="OgrenciTelefonu" ColumnName="OgrenciTelefonu" />
+                <ScalarProperty Name="OgrenciID" ColumnName="OgrenciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgrenciDersleri">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.OgrenciDersleri">
+              <MappingFragment StoreEntitySet="OgrenciDersleri">
+                <ScalarProperty Name="DersID" ColumnName="DersID" />
+                <ScalarProperty Name="OgrenciID" ColumnName="OgrenciID" />
+                <ScalarProperty Name="OgrenciDersleriID" ColumnName="OgrenciDersleriID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgrenciDevamsizlik">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.OgrenciDevamsizlik">
+              <MappingFragment StoreEntitySet="OgrenciDevamsizlik">
+                <ScalarProperty Name="VeliBilgilendirilmesi" ColumnName="VeliBilgilendirilmesi" />
+                <ScalarProperty Name="RaporBilgisi" ColumnName="RaporBilgisi" />
+                <ScalarProperty Name="Mazereti" ColumnName="Mazereti" />
+                <ScalarProperty Name="DevamsizlikTarihi" ColumnName="DevamsizlikTarihi" />
+                <ScalarProperty Name="OgrenciID" ColumnName="OgrenciID" />
+                <ScalarProperty Name="OgrenciDevamsizlikID" ColumnName="OgrenciDevamsizlikID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgrenciDisiplinKayitlari">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.OgrenciDisiplinKayitlari">
+              <MappingFragment StoreEntitySet="OgrenciDisiplinKayitlari">
+                <ScalarProperty Name="SorumluOgretmen" ColumnName="SorumluOgretmen" />
+                <ScalarProperty Name="DisiplinSebebi" ColumnName="DisiplinSebebi" />
+                <ScalarProperty Name="OgrenciID" ColumnName="OgrenciID" />
+                <ScalarProperty Name="DisiplinID" ColumnName="DisiplinID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ogrenciler">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.Ogrenciler">
+              <MappingFragment StoreEntitySet="Ogrenciler">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="OgrenciKimlikNo" ColumnName="OgrenciKimlikNo" />
+                <ScalarProperty Name="OgrenciSoyadi" ColumnName="OgrenciSoyadi" />
+                <ScalarProperty Name="OgrenciAdi" ColumnName="OgrenciAdi" />
+                <ScalarProperty Name="OgrenciID" ColumnName="OgrenciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgrenciSinavlari">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.OgrenciSinavlari">
+              <MappingFragment StoreEntitySet="OgrenciSinavlari">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="SinavNotu" ColumnName="SinavNotu" />
+                <ScalarProperty Name="OgrenciID" ColumnName="OgrenciID" />
+                <ScalarProperty Name="OgrenciSinavlariID" ColumnName="OgrenciSinavlariID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgretmenBilgileri">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.OgretmenBilgileri">
+              <MappingFragment StoreEntitySet="OgretmenBilgileri">
+                <ScalarProperty Name="OgretmenMedeniDurum" ColumnName="OgretmenMedeniDurum" />
+                <ScalarProperty Name="OgretmenDogumTarihi" ColumnName="OgretmenDogumTarihi" />
+                <ScalarProperty Name="OgretmenEvAdresi" ColumnName="OgretmenEvAdresi" />
+                <ScalarProperty Name="OgretmenMailAdresi" ColumnName="OgretmenMailAdresi" />
+                <ScalarProperty Name="OgretmenTelefonu" ColumnName="OgretmenTelefonu" />
+                <ScalarProperty Name="OgretmenID" ColumnName="OgretmenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgretmenBranslari">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.OgretmenBranslari">
+              <MappingFragment StoreEntitySet="OgretmenBranslari">
+                <ScalarProperty Name="BransAdi" ColumnName="BransAdi" />
+                <ScalarProperty Name="BransID" ColumnName="BransID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgretmenDersleri">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.OgretmenDersleri">
+              <MappingFragment StoreEntitySet="OgretmenDersleri">
+                <ScalarProperty Name="DersID" ColumnName="DersID" />
+                <ScalarProperty Name="OgretmenID" ColumnName="OgretmenID" />
+                <ScalarProperty Name="OgretmenDersleriID" ColumnName="OgretmenDersleriID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgretmenDevamsizlik">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.OgretmenDevamsizlik">
+              <MappingFragment StoreEntitySet="OgretmenDevamsizlik">
+                <ScalarProperty Name="RaporBilgisi" ColumnName="RaporBilgisi" />
+                <ScalarProperty Name="Mazereti" ColumnName="Mazereti" />
+                <ScalarProperty Name="DevamsizlikTarihi" ColumnName="DevamsizlikTarihi" />
+                <ScalarProperty Name="OgretmenID" ColumnName="OgretmenID" />
+                <ScalarProperty Name="OgretmenDevamsizlikID" ColumnName="OgretmenDevamsizlikID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OgretmenDisiplinKayitlari">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.OgretmenDisiplinKayitlari">
+              <MappingFragment StoreEntitySet="OgretmenDisiplinKayitlari">
+                <ScalarProperty Name="DisiplinSebebi" ColumnName="DisiplinSebebi" />
+                <ScalarProperty Name="OgretmenID" ColumnName="OgretmenID" />
+                <ScalarProperty Name="DisiplinID" ColumnName="DisiplinID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ogretmenler">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.Ogretmenler">
+              <MappingFragment StoreEntitySet="Ogretmenler">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="OgretmenBrans" ColumnName="OgretmenBrans" />
+                <ScalarProperty Name="OgretmenKimlikNo" ColumnName="OgretmenKimlikNo" />
+                <ScalarProperty Name="OgretmenSoyadi" ColumnName="OgretmenSoyadi" />
+                <ScalarProperty Name="OgretmenAdi" ColumnName="OgretmenAdi" />
+                <ScalarProperty Name="OgretmenID" ColumnName="OgretmenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelBilgileri">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.PersonelBilgileri">
+              <MappingFragment StoreEntitySet="PersonelBilgileri">
+                <ScalarProperty Name="PersonelMedeniDurumu" ColumnName="PersonelMedeniDurumu" />
+                <ScalarProperty Name="PersonelDogumTarihi" ColumnName="PersonelDogumTarihi" />
+                <ScalarProperty Name="PersonelEvAdresi" ColumnName="PersonelEvAdresi" />
+                <ScalarProperty Name="PersonelMailAdresi" ColumnName="PersonelMailAdresi" />
+                <ScalarProperty Name="PersonelTelefonu" ColumnName="PersonelTelefonu" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelDevamsizlik">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.PersonelDevamsizlik">
+              <MappingFragment StoreEntitySet="PersonelDevamsizlik">
+                <ScalarProperty Name="RaporBilgisi" ColumnName="RaporBilgisi" />
+                <ScalarProperty Name="Mazereti" ColumnName="Mazereti" />
+                <ScalarProperty Name="DevamsizlikTarihi" ColumnName="DevamsizlikTarihi" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="PersonelDevamsızlıkID" ColumnName="PersonelDevamsızlıkID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personeller">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.Personeller">
+              <MappingFragment StoreEntitySet="Personeller">
+                <ScalarProperty Name="PersonelMeslekID" ColumnName="PersonelMeslekID" />
+                <ScalarProperty Name="PersonelKimlikNo" ColumnName="PersonelKimlikNo" />
+                <ScalarProperty Name="PersonelSoyadi" ColumnName="PersonelSoyadi" />
+                <ScalarProperty Name="PersonelAdi" ColumnName="PersonelAdi" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelMeslekleri">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.PersonelMeslekleri">
+              <MappingFragment StoreEntitySet="PersonelMeslekleri">
+                <ScalarProperty Name="MeslekAçiklamasi" ColumnName="MeslekAçiklamasi" />
+                <ScalarProperty Name="MeslekAdi" ColumnName="MeslekAdi" />
+                <ScalarProperty Name="MeslekID" ColumnName="MeslekID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SinavDonemleri">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.SinavDonemleri">
+              <MappingFragment StoreEntitySet="SinavDonemleri">
+                <ScalarProperty Name="SinavDönemAdi" ColumnName="SinavDönemAdi" />
+                <ScalarProperty Name="SinavDönemID" ColumnName="SinavDönemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Siniflar">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.Siniflar">
+              <MappingFragment StoreEntitySet="Siniflar">
+                <ScalarProperty Name="SubeID" ColumnName="SubeID" />
+                <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+                <ScalarProperty Name="SinifNo" ColumnName="SinifNo" />
+                <ScalarProperty Name="SinifID" ColumnName="SinifID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SinifOgrencileri">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.SinifOgrencileri">
+              <MappingFragment StoreEntitySet="SinifOgrencileri">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="OgrenciID" ColumnName="OgrenciID" />
+                <ScalarProperty Name="SinifID" ColumnName="SinifID" />
+                <ScalarProperty Name="SinifOgrencileriID" ColumnName="SinifOgrencileriID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subeler">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.Subeler">
+              <MappingFragment StoreEntitySet="Subeler">
+                <ScalarProperty Name="SubeAdi" ColumnName="SubeAdi" />
+                <ScalarProperty Name="SubeID" ColumnName="SubeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Lise_Yönetim_DBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

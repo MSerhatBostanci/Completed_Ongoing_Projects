@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="33ff4f32ac6d469cbcf60c3f55c82048" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="EksinPharmaDatabaseModel.Calisanlar" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EksinPharmaDatabaseModel.Ilaclar" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EksinPharmaDatabaseModel.Kategoriler" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EksinPharmaDatabaseModel.Musteriler" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EksinPharmaDatabaseModel.Satislar" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EksinPharmaDatabaseModel.StokSiparisleri" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EksinPharmaDatabaseModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EksinPharmaDatabaseModel.Tedarikciler" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EksinPharmaDatabaseModel.SatisDetaylari" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="EksinPharmaDatabaseModel.FK_Satislar_Calisanlar" ManuallyRouted="false" />
+        <AssociationConnector Association="EksinPharmaDatabaseModel.FK_Ilaclar_Kategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="EksinPharmaDatabaseModel.FK_Ilaclar_Tedarikciler" ManuallyRouted="false" />
+        <AssociationConnector Association="EksinPharmaDatabaseModel.FK_SatisDetaylari_Ilaclar" ManuallyRouted="false" />
+        <AssociationConnector Association="EksinPharmaDatabaseModel.FK_Satislar_Musteriler" ManuallyRouted="false" />
+        <AssociationConnector Association="EksinPharmaDatabaseModel.FK_SatisDetaylari_Satislar" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
