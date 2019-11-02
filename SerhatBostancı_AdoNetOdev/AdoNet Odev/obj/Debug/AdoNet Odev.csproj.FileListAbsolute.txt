@@ -1,0 +1,10 @@
+C:\Users\Bostancı\Desktop\SerhatBostancı_AdoNetOdev\AdoNet Odev\bin\Debug\AdoNet Odev.exe.config
+C:\Users\Bostancı\Desktop\SerhatBostancı_AdoNetOdev\AdoNet Odev\bin\Debug\AdoNet Odev.exe
+C:\Users\Bostancı\Desktop\SerhatBostancı_AdoNetOdev\AdoNet Odev\bin\Debug\AdoNet Odev.pdb
+C:\Users\Bostancı\Desktop\SerhatBostancı_AdoNetOdev\AdoNet Odev\obj\Debug\AdoNet Odev.csprojAssemblyReference.cache
+C:\Users\Bostancı\Desktop\SerhatBostancı_AdoNetOdev\AdoNet Odev\obj\Debug\AdoNet_Odev.Form1.resources
+C:\Users\Bostancı\Desktop\SerhatBostancı_AdoNetOdev\AdoNet Odev\obj\Debug\AdoNet_Odev.Properties.Resources.resources
+C:\Users\Bostancı\Desktop\SerhatBostancı_AdoNetOdev\AdoNet Odev\obj\Debug\AdoNet Odev.csproj.GenerateResource.cache
+C:\Users\Bostancı\Desktop\SerhatBostancı_AdoNetOdev\AdoNet Odev\obj\Debug\AdoNet Odev.csproj.CoreCompileInputs.cache
+C:\Users\Bostancı\Desktop\SerhatBostancı_AdoNetOdev\AdoNet Odev\obj\Debug\AdoNet Odev.exe
+C:\Users\Bostancı\Desktop\SerhatBostancı_AdoNetOdev\AdoNet Odev\obj\Debug\AdoNet Odev.pdb

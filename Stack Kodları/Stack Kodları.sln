@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack Koadlarının Tamamı", "Stack Koadlarının Tamamı\Stack Koadlarının Tamamı.csproj", "{370C561F-E15A-4D5A-93F5-34FA867CF10E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack Öğrenim Programı", "Stack Öğreim Programı\Stack Öğrenim Programı.csproj", "{6F4ED985-9465-4A92-BD26-BB95DE29181E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{370C561F-E15A-4D5A-93F5-34FA867CF10E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{370C561F-E15A-4D5A-93F5-34FA867CF10E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{370C561F-E15A-4D5A-93F5-34FA867CF10E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{370C561F-E15A-4D5A-93F5-34FA867CF10E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F4ED985-9465-4A92-BD26-BB95DE29181E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F4ED985-9465-4A92-BD26-BB95DE29181E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F4ED985-9465-4A92-BD26-BB95DE29181E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F4ED985-9465-4A92-BD26-BB95DE29181E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3225C3CB-0FC7-48A3-B4AB-65F2D4002F85}
+	EndGlobalSection
+EndGlobal

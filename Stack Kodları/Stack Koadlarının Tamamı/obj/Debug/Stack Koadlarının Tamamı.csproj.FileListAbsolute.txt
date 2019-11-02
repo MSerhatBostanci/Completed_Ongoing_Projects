@@ -1,0 +1,14 @@
+C:\Users\Section1\source\repos\Stack Kodları\Stack Koadlarının Tamamı\bin\Debug\Stack Koadlarının Tamamı.exe.config
+C:\Users\Section1\source\repos\Stack Kodları\Stack Koadlarının Tamamı\bin\Debug\Stack Koadlarının Tamamı.exe
+C:\Users\Section1\source\repos\Stack Kodları\Stack Koadlarının Tamamı\bin\Debug\Stack Koadlarının Tamamı.pdb
+C:\Users\Section1\source\repos\Stack Kodları\Stack Koadlarının Tamamı\obj\Debug\Stack Koadlarının Tamamı.csprojAssemblyReference.cache
+C:\Users\Section1\source\repos\Stack Kodları\Stack Koadlarının Tamamı\obj\Debug\Stack Koadlarının Tamamı.csproj.CoreCompileInputs.cache
+C:\Users\Section1\source\repos\Stack Kodları\Stack Koadlarının Tamamı\obj\Debug\Stack Koadlarının Tamamı.exe
+C:\Users\Section1\source\repos\Stack Kodları\Stack Koadlarının Tamamı\obj\Debug\Stack Koadlarının Tamamı.pdb
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Koadlarının Tamamı\bin\Debug\Stack Koadlarının Tamamı.exe.config
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Koadlarının Tamamı\bin\Debug\Stack Koadlarının Tamamı.exe
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Koadlarının Tamamı\bin\Debug\Stack Koadlarının Tamamı.pdb
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Koadlarının Tamamı\obj\Debug\Stack Koadlarının Tamamı.csprojAssemblyReference.cache
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Koadlarının Tamamı\obj\Debug\Stack Koadlarının Tamamı.csproj.CoreCompileInputs.cache
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Koadlarının Tamamı\obj\Debug\Stack Koadlarının Tamamı.exe
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Koadlarının Tamamı\obj\Debug\Stack Koadlarının Tamamı.pdb

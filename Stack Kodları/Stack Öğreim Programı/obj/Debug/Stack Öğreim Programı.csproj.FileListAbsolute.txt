@@ -1,0 +1,7 @@
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Öğreim Programı\bin\Debug\Stack Öğreim Programı.exe.config
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Öğreim Programı\bin\Debug\Stack Öğreim Programı.exe
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Öğreim Programı\bin\Debug\Stack Öğreim Programı.pdb
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Öğreim Programı\obj\Debug\Stack Öğreim Programı.csproj.CoreCompileInputs.cache
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Öğreim Programı\obj\Debug\Stack Öğreim Programı.exe
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Öğreim Programı\obj\Debug\Stack Öğreim Programı.pdb
+C:\Users\Bostancı\source\repos\Stack Kodları\Stack Öğreim Programı\obj\Debug\Stack Öğreim Programı.csprojAssemblyReference.cache

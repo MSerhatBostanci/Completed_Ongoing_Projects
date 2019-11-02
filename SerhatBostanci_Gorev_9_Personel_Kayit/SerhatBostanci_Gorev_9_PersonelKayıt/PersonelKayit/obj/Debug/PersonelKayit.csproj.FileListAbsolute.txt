@@ -1,0 +1,10 @@
+C:\Users\Bostancı\Desktop\SerhatBostanci_Gorev_9_PersonelKayıt\PersonelKayit\bin\Debug\PersonelKayit.exe.config
+C:\Users\Bostancı\Desktop\SerhatBostanci_Gorev_9_PersonelKayıt\PersonelKayit\bin\Debug\PersonelKayit.exe
+C:\Users\Bostancı\Desktop\SerhatBostanci_Gorev_9_PersonelKayıt\PersonelKayit\bin\Debug\PersonelKayit.pdb
+C:\Users\Bostancı\Desktop\SerhatBostanci_Gorev_9_PersonelKayıt\PersonelKayit\obj\Debug\PersonelKayit.csprojAssemblyReference.cache
+C:\Users\Bostancı\Desktop\SerhatBostanci_Gorev_9_PersonelKayıt\PersonelKayit\obj\Debug\PersonelKayit.Form1.resources
+C:\Users\Bostancı\Desktop\SerhatBostanci_Gorev_9_PersonelKayıt\PersonelKayit\obj\Debug\PersonelKayit.Properties.Resources.resources
+C:\Users\Bostancı\Desktop\SerhatBostanci_Gorev_9_PersonelKayıt\PersonelKayit\obj\Debug\PersonelKayit.csproj.GenerateResource.cache
+C:\Users\Bostancı\Desktop\SerhatBostanci_Gorev_9_PersonelKayıt\PersonelKayit\obj\Debug\PersonelKayit.csproj.CoreCompileInputs.cache
+C:\Users\Bostancı\Desktop\SerhatBostanci_Gorev_9_PersonelKayıt\PersonelKayit\obj\Debug\PersonelKayit.exe
+C:\Users\Bostancı\Desktop\SerhatBostanci_Gorev_9_PersonelKayıt\PersonelKayit\obj\Debug\PersonelKayit.pdb
